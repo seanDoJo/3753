@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+int main() {
+	char line[256];
+	char opt;
+	int active = 1;
+	printf("Simple Character Device Interface\nr:\tread from device\nw:\twrite to device\ne:\texit interface\n");
+	FILE* fd = fopen("/dev/simple_char_device", "rw");
+
+	while(active) {
+		printf("Enter your command: ");
+		fgets(line, sizeof(line), stdin);
+		if(1 == sscanf(line, "%c", &opt)) {
+			if (opt == 'r') {
+				char readData[1024];
+				fread(readData, 1, 1024, fd);
+				printf("Read data: %s\n", readData);
+			}
+			else if (opt == 'w') {
+				char inputData[128];
+				printf("Enter your data: ");
+				fgets(inputData, sizeof(inputData), stdin);
+				int i;
+				for(i = 0; inputData[i] != '\0' && i < sizeof(inputData); i++);
+				fwrite(inputData, 1,i-1,fd);
+			}
+			else if (opt == 'e') {
+				active = 0;
+				printf("Bye!\n");
+			}
+			else {
+				printf("unrecognized!\n");
+			}
+		}
+	}
+	
+	fclose(fd);
+}

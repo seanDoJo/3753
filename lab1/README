@@ -1,0 +1,52 @@
+Name: Sean Donohoe
+Phone: 303-359-1771
+Email: sedo8743@colorado.edu
+Lab: 1
+CSCI 3753
+
+FILE DESCRIPTIONS
+
+lab1_test.c:
+
+	This is the test code for the system call "sys_simple_add" and can be built by running "gcc -o lab1_test lab1_test.c"
+
+	To run the program, pass the two numbers you wish to add as parameters to the executable as such:
+
+	./lab1_test numOne numTwo
+
+	The output of this program is the exit status of the system call, and the result of summing the two numbers using sys_simple_add
+
+	The output of sys_simple_add should immediately be reflected in the syslog file
+
+	This file can be stored in the home directory
+
+Makefile:
+
+	This is the makefile for the x86 system calls.
+
+	This makefile should be stored under arch/x86/kernel in order to add the correct system call object code to the kernel build.
+
+simple_add.c:
+
+	This is the source file for the  system call to add two numbers. It takes two integers and an integer address as parameters. The two integers
+	are printed to the syslog, summed, the answer printed to the syslog, and the answer stored in the address.
+
+	This file should be stored under arch/x86/kernel in order to be correctly compiled into the kernel.
+
+syscall_64.tbl:
+
+	This file maintains system call location information for the kernel.
+
+	This file should be stored under arch/x86/syscalls.
+
+syscalls.h:
+
+	This is the header file for using system calls, and maintains information on currently available calls.
+
+	This file should be stored under include/linux.
+
+syslog:
+
+	This file contains system messages and other information concerning operational aspects of applications and the kernel.
+
+	It is normally located under /var/log/syslog. 

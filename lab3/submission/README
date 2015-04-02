@@ -1,0 +1,17 @@
+Included Files:
+	multi-lookup.c -- threaded DNS resolution program
+	multi-lookup.h -- header for threaded solution
+	util.h -- header for DNS lookup functionality
+	util.c -- DNS lookup functionality
+	queue.h -- header for queue functionality
+	queue.c -- queue implementation
+
+Build:
+	make
+
+Clean:
+	make clean
+
+Valgrind:
+	valgrind ./multi-lookup input/<files> results.txt
+

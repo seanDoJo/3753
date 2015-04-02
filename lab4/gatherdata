@@ -1,0 +1,11 @@
+#!/bin/bash
+
+gcc -o parent parent.c
+
+make
+
+./parent PROC_CPU 10000000
+./parent PROC_IO 102400 1024
+./parent PROC_MIX 102400 1024 1000
+
+rm rwout*
