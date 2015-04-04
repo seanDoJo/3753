@@ -4,7 +4,7 @@ gcc -o parent parent.c
 
 make
 
-FORMAT="%e, %U, %S, %P, %c, %v"
+FORMAT="%e, %U, %S, %P, %c, %w"
 rm lab4-*
 touch lab4-sched_other.csv
 touch lab4-sched_fifo.csv
@@ -14,16 +14,22 @@ echo 50 >> lab4-sched_other.csv
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 50 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_IO" 50 102400 1024 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 50 102400 1024 1000 "SCHED_OTHER"
+echo "done with small!"
+rm rwo*
 
 echo 750 >> lab4-sched_other.csv
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 750 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_IO" 750 102400 1024 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_OTHER"
+echo "done with medium!"
+rm rwo*
 
 echo 2000 >> lab4-sched_other.csv
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 2000 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_IO" 2000 102400 1024 "SCHED_OTHER"
 /usr/bin/time --output=lab4-sched_other.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_OTHER"
+echo "done with large!"
+rm rwo*
 
 echo "sched-other done!"
 
@@ -31,16 +37,22 @@ echo 50 >> lab4-sched_fifo.csv
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 50 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_IO" 50 102400 1024 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 50 102400 1024 1000 "SCHED_FIFO"
+echo "done with small!"
+rm rwo*
 
 echo 750 >> lab4-sched_fifo.csv
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 750 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_IO" 750 102400 1024 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_FIFO"
+echo "done with medium!"
+rm rwo*
 
 echo 2000 >> lab4-sched_fifo.csv
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 2000 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_IO" 2000 102400 1024 "SCHED_FIFO"
 /usr/bin/time --output=lab4-sched_fifo.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_FIFO"
+echo "done with large!"
+rm rwo*
 
 echo "sched-fifo done!"
 
@@ -48,17 +60,21 @@ echo 50 >> lab4-sched_rr.csv
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 50 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_IO" 50 102400 1024 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 50 102400 1024 1000 "SCHED_RR"
+echo "done with small!"
+rm rwo*
 
 echo 750 >> lab4-sched_rr.csv
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 750 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_IO" 750 102400 1024 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_RR"
+echo "done with medium!"
+rm rwo*
 
 echo 2000 >> lab4-sched_rr.csv
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_CPU" 100000000 2000 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_IO" 2000 102400 1024 "SCHED_RR"
 /usr/bin/time --output=lab4-sched_rr.csv -a -f "$FORMAT" ./parent "PROC_MIXED" 750 102400 1024 1000 "SCHED_RR"
+echo "done with large!"
+rm rwo*
 
 echo "sched-rr done!"
-
-rm rwout*

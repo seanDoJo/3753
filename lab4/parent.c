@@ -14,7 +14,6 @@ extern char** environ;
 FILE* inputfp = NULL;
 
 void doCpu(char* schedPol, int numChildren, char* iterations) {
-	printf("docpu\n");
 	struct sched_param param;
 	int policy;
 	int i;
