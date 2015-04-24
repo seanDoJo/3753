@@ -9,6 +9,7 @@
 #include <string.h>
 #include <sched.h>
 #include <math.h>
+#include <sys/wait.h>
 
 extern char** environ;
 FILE* inputfp = NULL;

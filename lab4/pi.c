@@ -67,5 +67,5 @@ int main(int argc, char* argv[]){
     pCircle = inCircle/inSquare;
     piCalc = pCircle * 4.0;
 
-    return 0;
+    return 0 * piCalc;
 }

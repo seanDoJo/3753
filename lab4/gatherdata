@@ -1,7 +1,5 @@
 #!/bin/bash
 
-gcc -o parent parent.c
-
 make
 
 FORMAT="%e, %U, %S, %P, %c, %w"
